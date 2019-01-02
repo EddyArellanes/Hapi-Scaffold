@@ -1,7 +1,10 @@
 'use strict'
+//Controllers
 const site = require('./controllers/site')
-const user = require('./controllers/user  ')
+const user = require('./controllers/user')
 
+//Validations
+const Joi = require('joi')
 
 module.exports = [
   //Routes for Hapi
@@ -9,27 +12,39 @@ module.exports = [
   {
     method: 'GET',
     path: '/',
-    handler: site.home()
+    handler: site.home
   },
   //Register View
   {
     method: 'GET',
     path: '/register',
-    handler: site.register()    
+    handler: site.register   
   },
   //Post Register User
   {
     method: 'POST',
     path: '/create-user',
-    handler: user.createUser()
+    options: { //This is for validations using Joi
+      validate: {
+        payload: {
+          name: Joi.string().required().min(3),
+          email: Joi.string().required().email(),
+          password: Joi.string().required().min(6)
+
+        }
+      }
+    },
+    handler: user.createUser
   },
   {
     method: 'GET',
-    path: '/api/examples/string',
-    handler: ( request, h ) =>{
-      //h have h.response and h.redirect
-      return h.response("Hello World").code(200)
+    path: '/{param*}',
+    handler: {
+      directory: {
+        path: '.',
+        index: ['index.html']
+      }
     }
-  },
+  }
 
 ]
