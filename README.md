@@ -1,4 +1,4 @@
-#Installation
+# Installation
 > npm install hapi
 > npm install joi
 > npm install bcryptjs
@@ -9,7 +9,7 @@
 - Bcryptjs is a library for hash passwords.
 - Nodemon is a Dev dependency used for auto reload in any change of out code
 
-#Structure
+# Structure
 - server.js: It's the main file that run the server, here is instanciated Hapi
 - routes.js: Here I defined all endpoints of the API and of the UI if we are using Handlebars or smt like that.
 - config: Here are put all secrets and data for configurations like firebase.json and etc.
@@ -20,7 +20,7 @@
 # Firebase
 `If you need connect your Backend to a Firebase BaaS just need apply the following steps`
 > npm install firebase-admin
-#FullStack Application
+# FullStack Application
 `If you don't want to build an web application with Angular,React or Vue, you can do that in the classic mode like Php. To do this you need to use this Modules:`
 - npm install handlebars
 - npm install vision
