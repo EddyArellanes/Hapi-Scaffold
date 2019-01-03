@@ -12,9 +12,16 @@ function register(req, h){
     title: 'Registro'
   })
 }
+function login(req, h){
+  
+  return h.view('login', {
+    title: 'Iniciar Sesión'
+  })
+}
 
 module.exports = {
   home,
-  register
+  register,
+  login
   
 }

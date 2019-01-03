@@ -9,18 +9,27 @@ const Joi = require('joi')
 module.exports = [
   //Routes for Hapi
   //Root
+
   {
     method: 'GET',
     path: '/',
     handler: site.home
   },
+  //Views - In only API Mode is not needed
   //Register View
   {
     method: 'GET',
     path: '/register',
     handler: site.register   
   },
-  //Post Register User
+  //Login View
+  {
+    method: 'GET',
+    path: '/login',
+    handler: site.login   
+  },
+  //Controllers of Requests
+  //Request Register User
   {
     method: 'POST',
     path: '/create-user',
@@ -36,6 +45,23 @@ module.exports = [
     },
     handler: user.createUser
   },
+
+  //Request Login User
+  {
+    method: 'POST',
+    path: '/validate-user',
+    options: { //This is for validations using Joi
+      validate: {
+        payload: {          
+          email: Joi.string().required().email(),
+          password: Joi.string().required().min(6)
+
+        }
+      }
+    },
+    handler: user.validate
+  },
+
   {
     method: 'GET',
     path: '/{param*}',

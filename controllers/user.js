@@ -12,6 +12,19 @@ async function createUser(request, h ){
   }
 }
 
+async function validate(request, h){
+  let result
+  
+  try{
+    result = await users.validate( request.payload)
+    return result
+  }catch( error){
+    console.error( error)
+    return h.response('No se pudo comprobar al Usuario :Pn').code(500)
+  }
+}
+
 module.exports = {
-  createUser: createUser
+  createUser,
+  validate
 }
