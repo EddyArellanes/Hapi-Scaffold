@@ -30,3 +30,6 @@
 
 `I have insert an example called server-handlebars, if you want to know how it works`
 `However I prefer to use Node as Backend only and delegate UI to Frontend Framework... use Vue :3`
+
+
+`That's all for today 02/01/19`
