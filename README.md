@@ -1,7 +1,10 @@
 # Installation
 > npm install hapi
+
 > npm install joi
+
 > npm install bcryptjs
+
 > npm install nodemon -D
 
 - Hapi is the core of our Server
